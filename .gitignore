@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+
+# IDE
+.idea/
+
+# Environment
+.env
+
+# Private uploaded files
+private_receipts/
+
+# Logs
+*.log
+
+# Temporary test files
+test-db.php
+
+# Old/public receipt files
+receipts/

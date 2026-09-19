@@ -1,0 +1,12 @@
+/* Windows 95 / Retro Cursor */
+
+body {
+    cursor: url("/assets/cursors/arrow.cur"), default;
+}
+
+a,
+button,
+select,
+input[type="submit"] {
+    cursor: url("/assets/cursors/hand.cur"), pointer;
+}
