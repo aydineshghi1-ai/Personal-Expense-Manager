@@ -317,4 +317,13 @@ class TransactionController
 
         return $transactionId['receipt'];
     }
+
+    public function getCategories()
+    {
+        requireLogin();
+
+        $userId = $_SESSION['user_id'];
+
+        return $this->categoryModel->getCategoriesByUser($userId);
+    }
 }

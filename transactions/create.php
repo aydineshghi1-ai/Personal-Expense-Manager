@@ -6,4 +6,6 @@ $transactionController = new TransactionController();
 
 $transactionController->create();
 
+$categories = $transactionController->getCategories();
+
 require_once '../views/transactions/create.php';

@@ -51,23 +51,32 @@
                     for="categoryId"
                     class="font-black text-lg"
                 >
-                    CATEGORY ID
+                    CATEGORY
                 </label>
 
-                <input
-                    type="number"
-                    name="categoryId"
-                    id="categoryId"
-                    class="h-12
-                           px-3
-                           bg-[#7cff00]
-                           text-black
-                           border-4 border-black
-                           outline-none
-                           font-bold
-                           shadow-[4px_4px_0_#404040]
-                           focus:bg-[#9cff33]"
-                >
+                <select
+                        name="categoryId"
+                        id="categoryId"
+                        class="h-12
+                        px-3
+                        bg-[#7cff00]
+                        text-black
+                        border-4 border-black
+                        outline-none
+                        font-bold
+                        shadow-[4px_4px_0_#404040]"
+                        >
+                    <?php foreach ($categories as $category): ?>
+
+                        <option
+                                value="<?= e($category['id']) ?>"
+                                data-type="<?= e($category['type']) ?>"
+                        >
+                            <?= e(strtoupper($category['name'])) ?>
+                        </option>
+
+                    <?php endforeach; ?>
+                </select>
 
             </div>
 
@@ -243,5 +252,42 @@
         </div>
 
     </form>
+
+    <script>
+        const typeSelect = document.getElementById('type');
+        const categorySelect = document.getElementById('categoryId');
+
+        function filterCategories() {
+
+            const selectedType = typeSelect.value;
+
+            let firstVisibleCategory = null;
+
+            Array.from(categorySelect.options).forEach(option => {
+
+                const categoryType = option.dataset.type;
+
+                if (categoryType === selectedType) {
+                    option.hidden = false;
+
+                    if (!firstVisibleCategory) {
+                        firstVisibleCategory = option;
+                    }
+
+                } else {
+                    option.hidden = true;
+                }
+
+            });
+
+            if (firstVisibleCategory) {
+                categorySelect.value = firstVisibleCategory.value;
+            }
+        }
+
+        typeSelect.addEventListener('change', filterCategories);
+
+        filterCategories();
+    </script>
 
 </body>
