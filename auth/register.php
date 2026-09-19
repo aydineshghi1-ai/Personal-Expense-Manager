@@ -8,6 +8,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 };
 ?>
 
+<head>
+    <head>
+    <link rel="stylesheet" href="../assets/css/output.css">
+</head>
+</head>
+
+
 <div class="min-h-screen bg-[#c0c0c0] flex items-center justify-center p-4">
 
     <div class="w-full max-w-md bg-[#c0c0c0] border-2 border-black shadow-[6px_6px_0px_#000]">
