@@ -39,7 +39,7 @@ class AuthController {
             $email,
             $passwordHash
         );
-        redirect('auth/login.php');
+        redirect('/auth/login.php');
     }
 
     public function login() {
